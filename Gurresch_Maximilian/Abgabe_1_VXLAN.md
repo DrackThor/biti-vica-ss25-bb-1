@@ -55,8 +55,6 @@ Eingeteilt in Overlay & Underlay
 **host1**
 - Host-IP: 1.2.3.4/24 (Public IP)
 - NIC-name: eth0
-- vm1 läuft
-
 
 **host2**
 - Host-IP: 10.1.1.10/24
