@@ -1,0 +1,104 @@
+# NAS – Network Attached Storage
+
+## Was ist ein NAS?
+
+NAS steht für **Network Attached Storage**, also „netzgebundener Speicher“. Dabei handelt es sich um ein eigenständiges Gerät – oft ein kompakter Server –, das Speicherplatz über ein lokales Netzwerk bereitstellt. Das bedeutet: Dateien, die auf dem NAS gespeichert sind, lassen sich von verschiedenen Geräten gleichzeitig abrufen – etwa vom Laptop, Smartphone oder Fernseher.
+
+Ein NAS ist besonders praktisch, weil es dauerhaft eingeschaltet bleibt, Strom sparend arbeitet und als zentrale Datenablage dient. Man kann es sich wie eine **eigene kleine Cloud zu Hause oder im Unternehmen** vorstellen – mit dem Unterschied, dass man die volle Kontrolle über die gespeicherten Daten hat.
+
+## Anwendungsbereiche
+
+### Privatnutzer:
+- **Zentrale Ablage**: Fotos, Videos, Musik und Dokumente für alle Haushaltsmitglieder zugänglich.
+- **Medienserver**: Streaming von Filmen, Serien oder Musik auf TV, Tablet oder Smartphone.
+- **Backups**: Automatische Sicherung von Geräten im Haushalt.
+- **Remote-Zugriff**: Zugriff auf eigene Daten von unterwegs – ohne Google Drive & Co.
+
+### Unternehmen:
+- **Dateifreigabe**: Gemeinsames Arbeiten an Dateien im Team.
+- **Datensicherung**: Automatisierte Backups von Arbeitsplätzen und Servern.
+- **Benutzer- und Rechteverwaltung**: Zugriffskontrolle und Datenorganisation.
+- **Erweiterung**: Einige NAS-Geräte bieten virtuelle Maschinen, Docker-Container oder sogar E-Mail-Server.
+
+## Technische Grundlagen
+
+Ein NAS besteht aus einer oder mehreren Festplatten, einem Prozessor, RAM und einem Netzwerkanschluss. Es wird meist über eine **Weboberfläche** verwaltet und läuft mit einem spezialisierten Betriebssystem (z. B. Synology DSM oder QNAP QTS).
+
+### Typischer Aufbau:
+- 1–8 Festplatteneinschübe (oder mehr)
+- RAID-System für Ausfallsicherheit (z. B. RAID 1 oder RAID 5)
+- Netzwerkanschluss (1 Gbit/s oder mehr)
+- Benutzeroberfläche für Konfiguration und Verwaltung
+
+### RAID – Datensicherheit durch Redundanz
+- **RAID 1**: Daten werden gespiegelt – zwei identische Kopien
+- **RAID 5**: Daten auf mehreren Platten verteilt mit Prüfinformation – effizient und sicher
+- Achtung: RAID ersetzt kein Backup! Es schützt nur gegen Festplattenausfälle.
+
+## Unterstützte Protokolle
+
+Damit verschiedene Geräte und Betriebssysteme mit dem NAS kommunizieren können, werden verschiedene **Datei- und Netzwerkprotokolle** verwendet:
+
+| Protokoll | Beschreibung |
+|-----------|--------------|
+| **SMB**   | Windows-Netzwerkfreigabe |
+| **NFS**   | Dateizugriff unter Linux/UNIX |
+| **AFP**   | Früher für macOS, heute kaum noch verwendet |
+| **FTP/SFTP** | Dateiübertragung übers Internet |
+| **WebDAV** | Zugriff über Webbrowser oder Apps |
+| **DLNA/UPnP** | Streaming auf Fernseher oder Konsolen |
+
+## Hersteller & Software
+
+| Hersteller        | Modellbeispiel       | Besonderheiten                    |
+|------------------|----------------------|-----------------------------------|
+| **Synology**     | DS220+, DS920+       | Sehr benutzerfreundlich (DSM)     |
+| **QNAP**         | TS-253D, TS-464      | Leistungsstark, HDMI-Anschluss möglich |
+| **Western Digital** | My Cloud EX2 Ultra | Günstig, für Einsteiger geeignet  |
+| **TrueNAS**      | Softwarelösung       | Open Source, flexibel anpassbar   |
+
+Typische Softwarefunktionen:
+- Benutzerverwaltung und Rechte
+- Backup-Pläne und Zeitpläne
+- Multimedia-Apps (z. B. Plex)
+- Virtualisierung und Container (z. B. Docker)
+- Webzugriff und mobile Apps
+
+## Architekturskizze (Text)
+
+
++-------------------------------+
+| Benutzergeräte |
+| (PC, Laptop, Smartphone, TV) |
++---------------+---------------+
+|
+LAN/WLAN
+|
++---------------v---------------+
+| NAS |
+| +---------------------------+ |
+| | RAID-System (z. B. RAID 1)| |
+| | Dateifreigaben (SMB etc.)| |
+| | Benutzerverwaltung | |
+| | Streamingdienste | |
+| | Weboberfläche | |
+| +---------------------------+ |
++-------------------------------+
+
+
+## Vorteile und Nachteile eines NAS
+
+### ✅ Vorteile
+- **Zentrale Datenablage** für mehrere Geräte
+- **Eigene Cloud** ohne monatliche Gebühren
+- **Zugriff von überall** (auch unterwegs)
+- **Datensicherheit** durch RAID und Backups
+- **Erweiterbar** mit Apps, Streaming, Docker etc.
+- **Energieeffizienter Dauerbetrieb**
+
+### ❌ Nachteile
+- **Anschaffungskosten** (Gerät + Festplatten)
+- **Grundkonfiguration nötig** (nicht Plug & Play wie eine USB-Festplatte)
+- **Einrichtung von Benutzerrechten & Sicherheit** wichtig bei Internetzugriff
+- **Leistungsgrenzen** bei günstigeren NAS-Modellen
+- **RAID ersetzt kein echtes Backup** (z. B. gegen versehentliches Löschen oder Brand)
