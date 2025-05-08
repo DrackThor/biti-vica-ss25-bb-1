@@ -1,113 +1,113 @@
 # Network File System (NFS)
 
-> **Kurzüberblick**  
-> NFS ist ein offener, plattform­übergreifender Standard zum transparenten Netzwerk-Dateizugriff.  
-> Seit der Erstvorstellung durch Sun Microsystems (1984) hat sich NFS – aktuell _v4.2/4.3-Entwurf_ – zum De-facto-Standard im UNIX-/Linux-Umfeld sowie in Cloud- und Virtualisierungs­plattformen entwickelt.
+> **KurzÃ¼berblick**  
+> NFS ist ein offener, plattformÂ­Ã¼bergreifender Standard zum transparenten Netzwerk-Dateizugriff.  
+> Seit der Erstvorstellung durch SunÂ MicrosystemsÂ (1984) hat sich NFS â€“ aktuell _v4.2/4.3-Entwurf_ â€“ zum De-facto-Standard im UNIX-/Linux-Umfeld sowie in Cloud- und VirtualisierungsÂ­plattformen entwickelt.
 
 ---
 
-## 1  Was ist NFS?
+## 1Â Â Was ist NFS?
 
-Der **Network File System**-Standard definiert ein *Remote-Procedure-Call*-basiertes Protokoll, mit dem entfernte Dateisysteme so eingebunden werden, als lägen sie lokal vor.  
+Der **NetworkÂ FileÂ System**-Standard definiert ein *Remote-Procedure-Call*-basiertes Protokoll, mit dem entfernte Dateisysteme so eingebunden werden, als lÃ¤gen sie lokal vor.  
 Grundidee:
 
 1. **Client** fordert Datei-Operation (READ/WRITE/LOOKUP) an.  
-2. **NFS-Server** verarbeitet den RPC-Aufruf, greift lokal auf das Dateisystem zu und liefert das Ergebnis zurück.  
+2. **NFS-Server** verarbeitet den RPC-Aufruf, greift lokal auf das Dateisystem zu und liefert das Ergebnis zurÃ¼ck.  
 
-Der Zugriff erfolgt datei- und verzeichnisorientiert (anders als block­basierende Protokolle wie iSCSI), wodurch mehrere Hosts parallel dieselben Dateien nutzen können.
+Der Zugriff erfolgt datei- und verzeichnisorientiert (anders als blockÂ­basierende Protokolle wie iSCSI), wodurch mehrere Hosts parallel dieselben Dateien nutzen kÃ¶nnen.
 
 ---
 
-## 2  Einsatzkontext
+## 2Â Â Einsatzkontext
 
 | Szenario | Warum NFS? |
 |----------|------------|
-| **Campus-/Unternehmens-Netze** | Zentrales Home-Verzeichnis, Software-Distribution, Konfigurations­sharing |
-| **HPC & Cluster** | POSIX-Semantik, pNFS-Erweiterung für parallelen I/O |
+| **Campus-/Unternehmens-Netze** | Zentrales Home-Verzeichnis, Software-Distribution, KonfigurationsÂ­sharing |
+| **HPC & Cluster** | POSIX-Semantik, pNFS-Erweiterung fÃ¼r parallelen I/O |
 | **Virtualisierung & Container** | Shared Datastore (VM-Images, Container-Layer) ohne SAN-Overhead |
-| **Public Cloud** | Managed Services (AWS EFS, Azure NetApp Files, Google Filestore) mit POSIX-API |
+| **Public Cloud** | Managed Services (AWSÂ EFS, AzureÂ NetAppÂ Files, GoogleÂ Filestore) mit POSIX-API |
 
-Alternativen: SMB/CIFS (Windows-Ökosystem), AFS, Lustre, CephFS – je nach Leistungs- und Featurebedarf.
+Alternativen: SMB/CIFS (Windows-Ã–kosystem), AFS, Lustre, CephFS â€“ je nach Leistungs- und Featurebedarf.
 
 ---
 
-## 3  High-Level-Architektur
+## 3Â Â High-Level-Architektur
 
-Das Schaubild zeigt den **vollständigen Datenpfad**, den eine typische
-`read()`- oder `write()`-Operation durchläuft:
+Die Grafik zeigt den **vollstÃ¤ndigen Datenpfad**, den eine typische
+`read()`- oder `write()`-Operation durchlÃ¤uft:
 
-1. **Application / POSIX API** – jede Benutzer- oder System-App ruft
+1. **ApplicationÂ /Â POSIXÂ API** â€“ jede Benutzer- oder System-App ruft
    Standard-Syscalls wie `open()`, `read()`, `write()`, `close()` auf.
 
-2. **VFS Layer** – vereinheitlicht verschiedene Dateisystem-Treiber
-   (ext4, XFS, NFS, …) und entscheidet, welche Implementierung die
+2. **VFSÂ Layer** â€“ vereinheitlicht verschiedene Dateisystem-Treiber
+   (ext4, XFS, NFS, â€¦) und entscheidet, welche Implementierung die
    Anfrage bedienen soll.
 
-3. **NFS Client** – Kernel-Modul, das POSIX-Aufrufe in **ONC RPC**
-   übersetzt und über das Netzwerk verschickt.
+3. **NFSÂ Client** â€“ Kernel-Modul, das POSIX-Aufrufe in **ONCÂ RPC**
+   Ã¼bersetzt und Ã¼ber das Netzwerk verschickt.
 
-4. **Network (ONC RPC / TCP 2049)** – hier verlässt der Datenstrom den
-   Client-Rechner; alle NFS-Version-4-Pakete laufen über Port 2049
+4. **Network (ONCÂ RPCÂ /Â TCPÂ 2049)** â€“ hier verlÃ¤sst der Datenstrom den
+   Client-Rechner; alle NFS-Version-4-Pakete laufen Ã¼ber PortÂ 2049
    (optional per TLS oder RDMA).
 
-5. **NFS Server** – erhält RPC-Aufrufe, löst sie in lokale
-   Dateisystem-Operationen auf und verwaltet Session-/Lock-Zustände.
+5. **NFSÂ Server** â€“ erhÃ¤lt RPC-Aufrufe, lÃ¶st sie in lokale
+   Dateisystem-Operationen auf und verwaltet Session-/Lock-ZustÃ¤nde.
 
-6. **Local Filesystem** – physisches oder virtuelles
-   Block-Device (ext4, ZFS, XFS usw.), auf dem die eigentlichen Daten
+6. **LocalÂ Filesystem** â€“ physisches oder virtuelles
+   Block-DeviceÂ (ext4, ZFS, XFS usw.), auf dem die eigentlichen Daten
    gespeichert werden.
 
 Der vertikale Aufbau macht deutlich, dass **alles oberhalb des
-„Network“-Knotens lokal im Kernel des Clients läuft**, während darunter
+â€žNetworkâ€œ-Knotens lokal im Kernel des Clients lÃ¤uft**, wÃ¤hrend darunter
 Server- und Storage-Ressourcen angesiedelt sind.  
-Dadurch wird klar, **wo die Netzwerk­grenze verläuft** und an welcher
-Stelle Performance- und Sicherheits­mechanismen (pNFS, Kerberos, TLS,
+Dadurch wird klar, **wo die NetzwerkÂ­grenze verlÃ¤uft** und an welcher
+Stelle Performance- und SicherheitsÂ­mechanismen (pNFS, Kerberos, TLS,
 RDMA) angreifen.
 
 ![NFS-Architektur](images/NFS_architecture_simple.png)
 
-## 4  Technische Funktionsweise
+## 4Â Â TechnischeÂ Funktionsweise
 
-### 4.1  Versionsevolution
+### 4.1Â Â Versionsevolution
 
 | Version | Jahr | Hauptfeatures |
 |---------|------|---------------|
-| **v2 (RFC 1094)** | 1989 | 32-bit Dateigröße, UDP-basiert, *stateless* |
-| **v3 (RFC 1813)** | 1995 | 64-bit Files, asynchrone Writes, READDIRPLUS, *stateless* |
-| **v4.0 (RFC 7530)** | 2000 / 2015 | TCP-Pflicht, ACLs, Compound RPCs, **stateful** Sessions |
-| **v4.1 (RFC 8881)** | 2010 / 2020 | **Sessions**, Parallel NFS (pNFS) |
-| **v4.2 (RFC 7862)** | 2016 | CLONE / COPY OFFLOAD, IO_ADVISE, Sparse-File-Support |
-| **v4.3 (I-D)** | = 2024 | Konsolidierung, verpflichtende Features, verbesserte Delegationen |
+| **v2 (RFCÂ 1094)** |Â 1989 | 32-bitÂ DateigrÃ¶ÃŸe, UDP-basiert, *stateless* |
+| **v3 (RFCÂ 1813)** |Â 1995 | 64-bitÂ Files, asynchrone Writes, READDIRPLUS, *stateless* |
+| **v4.0 (RFCÂ 7530)** |Â 2000Â /Â 2015 | TCP-Pflicht, ACLs, CompoundÂ RPCs, **stateful** Sessions |
+| **v4.1 (RFCÂ 8881)** |Â 2010Â /Â 2020 | **Sessions**, ParallelÂ NFS (pNFS) |
+| **v4.2 (RFCÂ 7862)** |Â 2016 | CLONEÂ /Â COPYÂ OFFLOAD, IO_ADVISE, Sparse-File-Support |
+| **v4.3 (I-D)** |Â =Â 2024 | Konsolidierung, verpflichtende Features, verbesserte Delegationen |
 
 ---
 
-### 4.2  Stateful vs. Stateless
+### 4.2Â Â StatefulÂ vs.Â Stateless
 
-* **v2/v3** – *stateless*: Der Server behält keinen Sitzungszustand. Locks werden über einen separaten Network Lock Manager (NLM) gehandhabt.  
-* **v4.x** – *stateful*: Ein einziger TCP-Strom (Port 2049) kapselt Sitzung, Locks, Delegations ? einfachere Firewall-Regeln, bessere WAN-Performance.
+* **v2/v3** â€“ *stateless*: Der Server behÃ¤lt keinen Sitzungszustand. Locks werden Ã¼ber einen separaten NetworkÂ LockÂ Manager (NLM) gehandhabt.  
+* **v4.x** â€“ *stateful*: Ein einziger TCP-Strom (PortÂ 2049) kapselt Sitzung, Locks, Delegations ? einfachere Firewall-Regeln, bessere WAN-Performance.
 
 ---
 
-### 4.3  Sicherheitsmechanismen
+### 4.3Â Â Sicherheitsmechanismen
 
 | Mechanismus | Kurzbeschreibung |
 |-------------|-----------------|
 | **AUTH_SYS** | UID/GID im Klartext; geeignet nur in vertrauten Netzen |
-| **RPCSEC_GSS / Kerberos 5** | Sichere Authentifizierung, Integritäts- und Datenschutz |
-| **NFS over TLS (RFC 9289)** | Volle Transportverschlüsselung direkt auf Port 2049 (ab Linux = 6.7 / FreeBSD 14) |
+| **RPCSEC_GSSÂ /Â KerberosÂ 5** | Sichere Authentifizierung, IntegritÃ¤ts- und Datenschutz |
+| **NFSÂ overÂ TLS (RFCÂ 9289)** | Volle TransportverschlÃ¼sselung direkt auf PortÂ 2049 (ab LinuxÂ =Â 6.7 / FreeBSDÂ 14) |
 
 ---
 
-### 4.4  Performance-Features
+### 4.4Â Â Performance-Features
 
-* **Client-Side Caching** – Attribute- und Datencache mit Timeout-Heuristik  
-* **Delegations** – Client bekommt temporäre Exklusivrechte; weniger Round-Trips  
-* **pNFS** – Trennt Metadaten-/Datenpfad; Layout-Typen *files, objects, block/SCSI, NVMe*  
-* **RDMA-Transport** – Kernel-Bypass für µs-Latenz und > 100 Gb/s Durchsatz  
+* **Client-SideÂ Caching** â€“ Attribute- und Datencache mit Timeout-Heuristik  
+* **Delegations** â€“ Client bekommt temporÃ¤re Exklusivrechte; weniger Round-Trips  
+* **pNFS** â€“ Trennt Metadaten-/Datenpfad; Layout-Typen *files, objects, block/SCSI, NVMe*  
+* **RDMA-Transport** â€“ Kernel-Bypass fÃ¼r Âµs-Latenz und >Â 100Â Gb/s Durchsatz  
 
 ---
 
-## 5  Gängige Protokolle, Werkzeuge & Produkte
+## 5Â Â GÃ¤ngigeÂ Protokolle,Â WerkzeugeÂ &Â Produkte
 
 | Kategorie | Beispiele |
 |-----------|-----------|
@@ -115,47 +115,47 @@ RDMA) angreifen.
 | **User-Space-Server** | **nfs-ganesha**, **libnfs** |
 | **Client-Tools** | `mount -t nfs`, `/etc/fstab`, `nfsstat`, `showmount` |
 | **Monitoring** | `exportfs`, `nfsdcltrack`, Prometheus-Exporter (node-exporter textfile) |
-| **Appliances / Cloud** | NetApp ONTAP, Dell PowerScale/Isilon, TrueNAS, AWS EFS, Azure NetApp Files, Google Filestore |
+| **AppliancesÂ /Â Cloud** | NetAppÂ ONTAP, DellÂ PowerScale/Isilon, TrueNAS, AWSÂ EFS, AzureÂ NetAppÂ Files, GoogleÂ Filestore |
 | **Tuning-Optionen** | `rsize/wsize`, `noac`, `actimeo`, `sec=krb5p`, `vers=4.2` |
 
 ---
 
-## 6  Typischer Arbeitsablauf (Linux)
+## 6Â Â TypischerÂ ArbeitsablaufÂ (Linux)
 
 ```bash
-# 1 – Pakete installieren
+# 1Â â€“Â Pakete installieren
 sudo apt install nfs-kernel-server nfs-common
 
-# 2 – Export definieren
+# 2Â â€“Â Export definieren
 echo "/srv/data 192.168.0.0/24(rw,sync,sec=krb5p,fsid=0)" | sudo tee -a /etc/exports
 sudo exportfs -rav          # Reload Exports
 
-# 3 – Client-Mount
+# 3Â â€“Â Client-Mount
 sudo apt install nfs-common krb5-user
 sudo mount -t nfs4 -o vers=4.2,sec=krb5p server.example:/ /mnt/nfs
 
-# 4 – Statistiken prüfen
+# 4Â â€“Â Statistiken prÃ¼fen
 nfsstat -m
 ```
 
-## 7  Best Practices
+## 7Â Â BestÂ Practices
 
-1. **Zentrale UID/GID-Verwaltung** (LDAP, Active Directory) – verhindert Berechtigungs-Mismatch.  
-2. **Sichere Transportschicht**: Firewall nur Port 2049 öffnen; Kerberos + TLS für Vertraulichkeit.  
-3. **`rsize` / `wsize` anpassen** – typ. 1 MiB bei 10 GbE; bei RDMA ggf. größer.  
+1. **Zentrale UID/GID-Verwaltung**Â (LDAP,Â ActiveÂ Directory) â€“ verhindert Berechtigungs-Mismatch.  
+2. **Sichere Transportschicht**: Firewall nur PortÂ 2049 Ã¶ffnen; KerberosÂ +Â TLS fÃ¼r Vertraulichkeit.  
+3. **`rsize`Â /Â `wsize` anpassen** â€“ typ.Â 1Â MiB bei 10Â GbE; bei RDMA ggf. grÃ¶ÃŸer.  
 4. **pNFS aktivieren**, wenn mehrere Datenpfade vorhanden (HPC, Scale-Out-NAS).  
-5. **Monitoring einbinden** – IOPS, Latenz, Session-Reclaims und „silly rename“ rechtzeitig erkennen.
+5. **Monitoring einbinden** â€“ IOPS, Latenz, Session-Reclaims und â€žsilly renameâ€œ rechtzeitig erkennen.
 
-## Referenzen / Weiterführende Dokumente
+## ReferenzenÂ /Â WeiterfÃ¼hrendeÂ Dokumente
 
-1. **RFC 1094** – Network File System Protocol Version 2  
-2. **RFC 1813** – NFS Version 3 Protocol Specification  
-3. **RFC 7530** – NFS Version 4 Protocol  
-4. **RFC 8881** – NFS Version 4.1 Protocol (konsolidierte Fassung 2020)  
-5. **RFC 7862** – NFS Version 4.2 Minor Version  
-6. **RFC 9289** – NFS over TLS  
-7. **RFC 9561** – Parallel NFS (pNFS) SCSI Layout für NVMe Transport  
-8. **I-D: draft-ietf-nfsv4-nfs-v4-3** – NFS Version 4.3 (Work in Progress)  
-9. Red Hat Docs – *Configuring and Managing NFS*  
-10. *The Design and Implementation of the FreeBSD Operating System*, Kapitel 14 (NFS)
+1. **RFCÂ 1094**Â â€“ Network File System ProtocolÂ VersionÂ 2  
+2. **RFCÂ 1813**Â â€“ NFSÂ VersionÂ 3 Protocol Specification  
+3. **RFCÂ 7530**Â â€“ NFSÂ VersionÂ 4 Protocol  
+4. **RFCÂ 8881**Â â€“ NFSÂ VersionÂ 4.1 Protocol (konsolidierte FassungÂ 2020)  
+5. **RFCÂ 7862**Â â€“ NFSÂ VersionÂ 4.2 Minor Version  
+6. **RFCÂ 9289**Â â€“ NFSÂ overÂ TLS  
+7. **RFCÂ 9561**Â â€“ ParallelÂ NFS (pNFS)Â SCSI Layout fÃ¼r NVMeÂ Transport  
+8. **I-D: draft-ietf-nfsv4-nfs-v4-3**Â â€“ NFSÂ VersionÂ 4.3 (WorkÂ inÂ Progress)  
+9. RedÂ HatÂ Docs â€“ *ConfiguringÂ andÂ ManagingÂ NFS*  
+10. *TheÂ Design and Implementation of the FreeBSD Operating System*, KapitelÂ 14Â (NFS)
 
