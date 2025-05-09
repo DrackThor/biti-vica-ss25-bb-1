@@ -38,15 +38,16 @@ Damit Container überhaupt gestartet und verwaltet werden können, benötigt man
 ## Vergleich: Machine Virtualization vs. OS Virtualization
 
 ![Machine vs OS Virtualization](os_vs_machine_virtualization.jpeg)
+*Quelle: https://www.netapp.com/media/Screen-Shot-2018-03-20-at-9.24.09-AM_tcm19-56643.png*
 
-Die Grafik veranschaulicht den Unterschied zwischen zwei Virtualisierungsansätzen:
+Die obige Grafik veranschaulicht den Unterschied zwischen zwei Virtualisierungsansätzen:
 
 - **Links**: Klassische Maschinenvirtualisierung mit Hypervisor (z. B. VMware, Hyper-V). Jede Anwendung läuft in einer eigenen virtuellen Maschine mit komplettem Gastsystem. Diese Architektur erzeugt höheren Ressourcenverbrauch.
-- **Rechts**: OS Virtualization (z. B. mit Docker). Hier werden die Container vom gleichen Betriebssystemkern verwaltet. Jeder Container enthält nur die Anwendung und ihre Laufzeitbibliotheken, aber kein eigenes Betriebssystem.
+- **Rechts**: OS Virtualization (hier z. B. mit Docker). Hier werden die Container vom gleichen Betriebssystemkern verwaltet. Jeder Container enthält nur die Anwendung und ihre Laufzeitbibliotheken, aber kein eigenes Betriebssystem.
 
-**-->** OS Virtualization ist deutlich schlanker, schneller startbereit und ressourcenschonender – ideal für Cloud-native Anwendungen.
+**-->** OS Virtualization ist, wie oben bereits erwähnt, deutlich schlanker, schneller startbereit und ressourcenschonender, und daher ideal für Cloud-native Anwendungen.
 
 ## Fazit
 
 OS Virtualization ist eine ressourcenschonende und performante Technologie, die eine effiziente Nutzung von Ressourcen erlaubt. 
-Durch "Containerisierung" können Anwendungen schnell und isoliert betrieben werden – ideal für dynamische, verteilte Systeme wie Microservices oder moderne Cloud-Umgebungen.
+Durch "Containerisierung" können Anwendungen schnell und isoliert betrieben werden, was ideal ist für dynamische, verteilte Systeme wie Microservices oder moderne Cloud-Umgebungen.
