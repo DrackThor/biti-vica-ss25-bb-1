@@ -48,22 +48,9 @@ Ein SDN-Netzwerk besteht aus drei Teilen:
 ---
 
 ## 5. Grafik zur SDN-Architektur
-+----------------------------+
-| Anwendungen (z. B. Firewall) |
-+------------▲---------------+
-|
-| REST-API
-|
-+------------▼---------------+
-| SDN-Controller (Software) |
-+------------▲---------------+
-|
-| OpenFlow
-|
-+------------▼---------------+
-| Geräte (Switches, Router) |
-+----------------------------+
+![SDN Skizze](SDN.png)
 
+---
 ## Kurz zusammengefasst
 
 - SDN bedeutet: Netzwerksteuerung wird zentralisiert und automatisiert.
