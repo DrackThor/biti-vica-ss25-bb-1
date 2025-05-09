@@ -48,7 +48,7 @@ Ein SDN-Netzwerk besteht aus drei Teilen:
 ---
 
 ## 5. Grafik zur SDN-Architektur
-![SDN Skizze](SDN.png)
+![SDN Skizze](Assets/SDN.png)
 
 ---
 ## Kurz zusammengefasst
