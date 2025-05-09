@@ -7,9 +7,9 @@ Diese Form der Virtualisierung ist besonders ressourcenschonend, da im Gegensatz
 
 ## Kontext und Einsatzgebiete
 
-OS Virtualization ist aus modernen IT-Infrastrukturen nicht mehr wegzudenken. In Cloud-Umgebungen, Continuous Integration Pipelines oder bei der Microservice-Architektur werden Anwendungen in separaten Containern betrieben. Dadurch wird nicht nur die Ressourcenauslastung optimiert, sondern auch die Entwicklung, Wartung und Skalierung vereinfacht.
+OS Virtualization ist aus modernen IT-Infrastrukturen eigentlich nicht mehr wegzudenken. In Cloud-Umgebungen, Continuous Integration Pipelines oder bei der Microservice-Architektur werden Anwendungen in separaten Containern betrieben. Dadurch wird nicht nur die Ressourcenauslastung optimiert, sondern auch die Entwicklung, Wartung und Skalierung vereinfacht.
 
-Wichtig: Container können sowohl direkt auf physischer Hardware als auch innerhalb einer virtuellen Maschine betrieben werden – *OS Virtualization can run on VM or Hardware*. Dies bietet zusätzliche Flexibilität im Deployment.
+Wichtig anzumerken ist: Container können sowohl direkt auf physischer Hardware als auch innerhalb einer virtuellen Maschine betrieben werden – "*OS Virtualization can run on VM or Hardware*". Dies bietet zusätzliche Flexibilität im Deployment.
 
 ## Technische Funktionsweise
 
@@ -44,11 +44,9 @@ Die Grafik veranschaulicht den Unterschied zwischen zwei Virtualisierungsansätz
 - **Links**: Klassische Maschinenvirtualisierung mit Hypervisor (z. B. VMware, Hyper-V). Jede Anwendung läuft in einer eigenen virtuellen Maschine mit komplettem Gastsystem. Diese Architektur erzeugt höheren Ressourcenverbrauch.
 - **Rechts**: OS Virtualization (z. B. mit Docker). Hier werden die Container vom gleichen Betriebssystemkern verwaltet. Jeder Container enthält nur die Anwendung und ihre Laufzeitbibliotheken, aber kein eigenes Betriebssystem.
 
-**Fazit:** OS Virtualization ist deutlich schlanker, schneller startbereit und ressourcenschonender – ideal für Cloud-native Anwendungen.
+**-->** OS Virtualization ist deutlich schlanker, schneller startbereit und ressourcenschonender – ideal für Cloud-native Anwendungen.
 
 ## Fazit
 
-OS Virtualization ist eine leichtgewichtige und performante Technologie, die eine effiziente Nutzung von Ressourcen erlaubt. Durch Containerisierung können Anwendungen schnell und isoliert betrieben werden – ideal für dynamische, verteilte Systeme wie Microservices oder moderne Cloud-Umgebungen.
-
-Der Schlüssel zur Effizienz: *Ein Betriebssystem, mehrere Container – mit gemeinsamem Kernel.*  
-Die Trennung erfolgt logisch, nicht physisch – ermöglicht durch Namespaces und cgroups.
+OS Virtualization ist eine ressourcenschonende und performante Technologie, die eine effiziente Nutzung von Ressourcen erlaubt. 
+Durch "Containerisierung" können Anwendungen schnell und isoliert betrieben werden – ideal für dynamische, verteilte Systeme wie Microservices oder moderne Cloud-Umgebungen.
