@@ -1,5 +1,3 @@
-# HCI – Hyperconverged Infrastructure (ausführlich & einfach erklärt)
-
 ## 1. Was ist HCI?
 
 **HCI (Hyperconverged Infrastructure)** ist ein modernes Architekturmodell für Rechenzentren, bei dem die drei zentralen Komponenten eines IT-Systems – **Rechenleistung (Compute), Speicher (Storage)** und **Netzwerk (Networking)** – in einer **einheitlichen, softwaregesteuerten Plattform** zusammengefasst werden.
