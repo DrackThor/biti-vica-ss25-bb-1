@@ -3,7 +3,7 @@
 
 Infrastructure as Code (IaC) bezeichnet einen modernen Ansatz zur Verwaltung und Bereitstellung von IT-Infrastruktur über maschinenlesbare Konfigurationsdateien anstatt manueller Prozesse. Dabei wird Infrastruktur – wie Server, Netzwerke oder Load Balancer – nicht mehr über grafische Benutzeroberflächen oder per Hand eingerichtet, sondern über deklarativen oder imperativen Code beschrieben und automatisiert bereitgestellt.
 
-Die Idee dahinter ist vergleichbar mit klassischer Softwareentwicklung: Infrastruktur wird versioniert, getestet und wiederholbar ausgeliefert – ähnlich wie Programmcode. Dadurch wird eine konsistente, nachvollziehbare und skalierbare Infrastrukturverwaltung möglich.
+Die Idee dahinter ist vergleichbar mit klassischer Softwareentwicklung: Infrastruktur wird versioniert, getestet und wiederholbar ausgeliefert, also ähnlich wie Programmcode. Dadurch wird eine konsistente, nachvollziehbare und skalierbare Infrastrukturverwaltung möglich.
 
 ## Kontext und Einsatzgebiete
 
@@ -38,6 +38,7 @@ IaC wird meist im Rahmen von **CI/CD-Prozessen** verwendet, oft in Kombination m
 ## Visualisierung
 
 ![Infrastructure as Code – Übersicht](infrastructure_as_code_diagram.jpg)
+*Quelle: https://www.cbtnuggets.com/blog/technology/programming/infrastructure-as-code-iac*
 
 Die Grafik zeigt den typischen Ablauf bei Infrastructure as Code: Entwickler schreiben Konfigurationsdateien, die in einem Versionskontrollsystem wie Git verwaltet werden. Diese Dateien werden von einem Automatisierungsserver oder API verarbeitet, der anschließend die Infrastruktur bereitstellt – entweder in der Cloud oder lokal im Rechenzentrum. Das Zusammenspiel von Versionierung, Code und automatisierter Ausführung bildet das zentrale Prinzip von IaC.
 
@@ -53,6 +54,20 @@ Im Vergleich zur klassischen, manuellen Infrastrukturverwaltung über grafische 
 
 ## Fazit
 
-Infrastructure as Code steht für den Wandel von manueller Infrastrukturverwaltung hin zu automatisierter, reproduzierbarer und versionskontrollierter Konfiguration. Durch den Einsatz von Tools wie Terraform oder Ansible kann Infrastruktur wie regulärer Code behandelt werden – inklusive Review, Tests und Rollbacks.
+Infrastructure as Code steht für den Wandel von manueller Infrastrukturverwaltung hin zu automatisierter, reproduzierbarer und versionskontrollierter Konfiguration. Durch den Einsatz von Tools wie Terraform oder Ansible kann Infrastruktur wie regulärer Code behandelt werden, mitsamt Review, Tests und Rollbacks.
 
 Das macht IaC zu einem zentralen Bestandteil moderner DevOps-Strategien und einer Voraussetzung für effiziente, skalierbare IT-Systeme in der Cloud.
+
+## Übersichtsquellen
+*https://learn.microsoft.com/en-us/devops/deliver/what-is-infrastructure-as-code*
+
+*https://www.cbtnuggets.com/blog/technology/programming/infrastructure-as-code-iac*
+
+*https://en.wikipedia.org/wiki/Infrastructure_as_code*
+
+## Weiterführende Quellen
+*https://books.google.at/books?hl=de&lr=&id=UW4NEAAAQBAJ&oi=fnd&pg=PP1&dq=infrastructure+as+code&ots=cdmSVM3MUv&sig=NTdTUgwXiyUSFKttFn6SrnjMcbc&redir_esc=y#v=onepage&q=infrastructure%20as%20code&f=false*
+
+*https://books.google.at/books?hl=de&lr=&id=dFaKEAAAQBAJ&oi=fnd&pg=PT22&dq=infrastructure+as+code&ots=keXEsGWFAo&sig=no1mhjuwS-Gp_ZpcNR3xPdxLDl8&redir_esc=y#v=onepage&q=infrastructure%20as%20code&f=false*
+
+*https://dergipark.org.tr/en/download/article-file/3463145*
