@@ -1,0 +1,56 @@
+# Storage Area Network (SAN)
+
+## Was ist das?
+Ein **Storage Area Network (SAN)** ist ein spezialisiertes Netzwerk, das eine direkte und schnelle Verbindung zwischen Servern und Speichergeräten ermöglicht.
+Es wird hauptsächlich in Unternehmen und Rechenzentren eingesetzt, um eine zentrale Speicherlösung bereitzustellen, die hohe **Geschwindigkeit**, **Zuverlässigkeit** und **Skalierbarkeit** bietet.
+
+Im Vergleich zu traditionellen Speichermethoden wie **Network Attached Storage (NAS)** oder internen Festplatten bietet ein SAN eine flexiblere und leistungsfähigere Alternative.
+Es ermöglicht mehreren Servern den Zugriff auf dieselben Speichergeräte mit hoher Datenübertragungsrate und niedriger Latenz.
+
+## Einsatzkontext
+SANs finden Anwendung in verschiedenen Bereichen der IT-Infrastruktur:
+- **Unternehmens-IT & Rechenzentren**: Zentralisierte Speicherlösungen für große Datenmengen, hohe Verfügbarkeit und schnelle Wiederherstellung im Fehlerfall.
+- **Datenbank-Management**: Verwendung in großen Datenbank-Systemen, wo schnelle Speicherzugriffe entscheidend sind.
+- **Virtualisierung**: Virtualisierte Server greifen oft auf gemeinsam genutzte Speicherressourcen zu, die über ein SAN bereitgestellt werden.
+- **Cloud Computing**: Viele private und hybride Cloud-Umgebungen nutzen SAN-Technologie für performanten Speicherzugriff.
+
+## Technische Funktionsweise
+Ein SAN arbeitet auf Basis der **Block-Level Storage**-Technologie, bei der Daten in kleinen Blöcken organisiert und direkt an die Server geliefert werden.
+Die Hauptbestandteile eines SAN umfassen:
+- **Speichergeräte**: Festplatten-Arrays, SSDs oder Tape Libraries zur Datenspeicherung.
+- **SAN-Switches**: Vermittlungsgeräte, die den Datenfluss zwischen Speicher und Servern steuern.
+- **Host Bus Adapter (HBA)**: Spezielle Netzwerkkarten in den Servern, die eine Verbindung zum SAN ermöglichen.
+- **Protokolle**: Kommunikationsstandards, die für die Datenübertragung innerhalb des SANs verwendet werden.
+
+Ein SAN kann entweder als **dediziertes Netzwerk** für die Speicherkommunikation existieren oder über **virtualisierte Storage-Lösungen** integriert werden.
+
+## Gängige Protokolle & Technologien
+SANs nutzen verschiedene Protokolle zur Datenübertragung:
+- **Fibre Channel (FC)**: Hochgeschwindigkeitsprotokoll mit dedizierter Infrastruktur, das eine sehr geringe Latenz aufweist.
+- **iSCSI (Internet Small Computer System Interface)**: Überträgt SCSI-Kommandos über standardisierte TCP/IP-Netzwerke, wodurch SANs über bestehende Netzwerkinfrastrukturen implementiert werden können.
+- **NVMe over Fabrics (NVMe-oF)**: Eine moderne Technologie, die extrem hohe Geschwindigkeiten für SSD-Speicher über Netzwerkverbindungen bietet.
+- **FCoE (Fibre Channel over Ethernet)**: Ermöglicht die Nutzung von Fibre Channel über Ethernet-Netzwerke und reduziert so die Anzahl benötigter physischer Geräte.
+
+## Architektur eines SAN
+SANs werden oft in **hierarchischer oder meshed Struktur** aufgebaut, um Skalierbarkeit und Ausfallsicherheit zu gewährleisten.
+Eine typische Architektur besteht aus mehreren **Storage-Nodes**, die über dedizierte SAN-Switches mit den Servern verbunden sind.
+
+
+## Vorteile eines SAN
+ **Hohe Leistung**: Schnellere Datenübertragung als traditionelle Netzwerkspeicherlösungen.  
+ **Zentrale Speicherverwaltung**: Alle Speichergeräte sind über das Netzwerk erreichbar.  
+ **Skalierbarkeit**: SANs können flexibel erweitert und angepasst werden.  
+ **Ausfallsicherheit**: Redundante Komponenten sorgen für hohe Verfügbarkeit.  
+
+## Nachteile eines SAN
+ **Komplexe Implementierung**: Die Einrichtung eines SAN erfordert spezielle Hardware und Expertise.  
+ **Kostenintensiv**: Besonders Fibre Channel-Technologien können teuer sein.  
+ **Administrationsaufwand**: Die Verwaltung eines SAN benötigt erfahrene IT-Administratoren.
+
+
+### Quellen
+https://www.ibm.com/de-de/topics/storage-area-network
+https://www.ibm.com/think/topics/storage-area-network
+
+### Author Zika Alexander
+Footer
