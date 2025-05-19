@@ -90,6 +90,12 @@ In modernen IT-Umgebungen erfolgt die Durchsetzung von Richtlinien nicht manuell
 - Tools wie **AWS CloudTrail**, **Azure Monitor**, **GCP Audit Logs** erfassen, wer wann welche Aktion durchgeführt hat
 - Grundlage für forensische Analysen und Compliance-Nachweise
 
+### 3.4 Beispiel: Cloud Governance Architektur
+
+Die folgende Darstellung zeigt eine typische Umsetzung von Governance & Policies im Cloud-Kontext – von der Definition über die technische Durchsetzung bis zur Überwachung:
+
+![Cloud Governance Architektur](assets/governance_simple.png)
+
 ---
 
 ## 4. Gängige Tools, Frameworks und Produkte
