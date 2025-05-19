@@ -64,7 +64,7 @@ Dadurch wird klar, **wo die Netzwerk­grenze verläuft** und an welcher
 Stelle Performance- und Sicherheits­mechanismen (pNFS, Kerberos, TLS,
 RDMA) angreifen.
 
-![NFS-Architektur](images/NFS_architecture_simple.png)
+![NFS-Architektur](assets/NFS_architecture_simple.png)
 
 ## 4  Technische Funktionsweise
 
