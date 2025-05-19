@@ -5,37 +5,41 @@ Sie ermöglichen die parallele Ausführung mehrerer Betriebssysteme und Anwendun
 Eine VM verhält sich wie ein echter Computer/Server allerdings vollständig virtualisiert durch eine Software-Schicht namens Hypervisor.
 
 Die vollständige simulierte Hardware, welche vom Hypervisor bereitgestellt wird, kann indiviudell konfiguriert werden:
-*) Virtuelle Festplatte: Wird als Datei gespeichert (zum Beispiel VDI, VMDK, VHD). Dient als System- und Datenträger der VM.
-*) Virtuelle CPU (vCPU): Der Hypervisor weist einer VM eine oder mehrere CPU-Kerne zu.
-*) Virtueller Arbeitsspeicher (RAM): Fester oder dynamischer Speicher, den die VM nutzen darf.
-*) Virtueller Netzwerkadapter (vNIC): Bindet die VM an virtuelle Switches, VLANs oder Bridge-Adapter.
-*) Virtuelle Grafikkarte (GPU): Unterstützt 2D/3D-Darstellung, ggf. mit GPU-Passthrough für bessere Leistung.
-*) Virtuelle Soundkarte / USB: Simuliert Peripherie wie Audio, USB-Geräte, Druckeranschlüsse usw.
+* Virtuelle Festplatte: Wird als Datei gespeichert (zum Beispiel VDI, VMDK, VHD). Dient als System- und Datenträger der VM.
+* Virtuelle CPU (vCPU): Der Hypervisor weist einer VM eine oder mehrere CPU-Kerne zu.
+* Virtueller Arbeitsspeicher (RAM): Fester oder dynamischer Speicher, den die VM nutzen darf.
+* Virtueller Netzwerkadapter (vNIC): Bindet die VM an virtuelle Switches, VLANs oder Bridge-Adapter.
+* Virtuelle Grafikkarte (GPU): Unterstützt 2D/3D-Darstellung, ggf. mit GPU-Passthrough für bessere Leistung.
+* Virtuelle Soundkarte / USB: Simuliert Peripherie wie Audio, USB-Geräte, Druckeranschlüsse usw.
 
 ![virtuelle Maschine Grafik](assets/grafik_virtuellemaschine.png)
 
 Der Hypervisor ist die zentrale Komponente, die VMs verwaltet und zwischen ihnen und der physischen Hardware vermittelt. Er stellt Ressourcen wie CPU, RAM und Speicher bereit.
-Typ 1 („Bare-Metal“): Läuft direkt auf der Hardware, ohne darunterliegendes Betriebssystem. 
+* Typ 1 („Bare-Metal“): Läuft direkt auf der Hardware, ohne darunterliegendes Betriebssystem. 
 Zum Beispiel VMware ESXi, Microsoft Hyper-V,..
-Typ 2("Hosted"): Läuft hinnerhalb eines bestehenden Betriebsystems
+* Typ 2("Hosted"): Läuft hinnerhalb eines bestehenden Betriebsystems
 Zum Beispiel, VirtualBox,..
 
+![Hypervisor 1 u 2 Grafik](assets/grafik_hypervisor1_2.png)
+
 Typische Einsatzbereiche von virtuelle Maschinen sind:
-*) Server-Konsolidierung: Mehrere Dienste (zum Beispiel Web-, Datenbank-, Applikationsserver) laufen in separaten VMs auf einem leistungsstarken Host.  Dadurch werden Hardwarekosten, Energieverbrauch und Wartungsaufwand reduziert.
-*) Ausfallsicherheit & Hochverfügbarkeit: Mithilfe von Hypervisor-Funktionen wie Live Migration (zum Beispiel vMotion bei VMware) können VMs im Fehlerfall automatisch auf andere Hosts verschoben werden. 
-*) Netzwerkvirtualisierung & Isolierung: VMs können über virtuelle Switches und VLANs logisch voneinander getrennt oder verbunden werden.Komplexe Netzwerke mit Firewalls und Load Balancern lassen sich vollständig virtualisieren.
-*) Skalierbarkeit in Rechenzentren: Neue VMs können innerhalb weniger Minuten bereitgestellt werden, beispielsweise zur Lastverteilung oder für zeitlich begrenzte Projekte. In Cloud-Umgebungen (zum Beispiel Microsoft Azure, AWS, Google Cloud) ist das Standard (IaaS).
-*) Snapshots und Rollbacks: VMs lassen sich mit wenigen Klicks sichern und in vorherige Zustände zurückversetzen. Das ist hilfreich für Wartung, Updates und Tests.
-*) Zentrale Verwaltung: Tools wie VMware vCenter ermöglichen die zentrale Steuerung, Überwachung und Automatisierung ganzer Virtualisierungsumgebungen.
-*) Softwareentwicklung & Testing: Verschiedene Betriebssysteme (zum Beispiel Windows 10 & 11) parallel testen.
-*) Legacy-Softwarebetrieb: Alte Anwendungen auf neuen Systemen weiterhin nutzen.
-*) IT-Sicherheit: Malwareanalyse in isolierten Umgebungen.
-*) Schulungen & Ausbildung: Schnelle Bereitstellung vollständiger Testumgebungen.
+* Server-Konsolidierung: Mehrere Dienste (zum Beispiel Web-, Datenbank-, Applikationsserver) laufen in separaten VMs auf einem leistungsstarken Host.  Dadurch werden Hardwarekosten, Energieverbrauch und Wartungsaufwand reduziert.
+* Ausfallsicherheit & Hochverfügbarkeit: Mithilfe von Hypervisor-Funktionen wie Live Migration (zum Beispiel vMotion bei VMware) können VMs im Fehlerfall automatisch auf andere Hosts verschoben werden. 
+* Netzwerkvirtualisierung & Isolierung: VMs können über virtuelle Switches und VLANs logisch voneinander getrennt oder verbunden werden.Komplexe Netzwerke mit Firewalls und Load Balancern lassen sich vollständig virtualisieren.
+* Skalierbarkeit in Rechenzentren: Neue VMs können innerhalb weniger Minuten bereitgestellt werden, beispielsweise zur Lastverteilung oder für zeitlich begrenzte Projekte. In Cloud-Umgebungen (zum Beispiel Microsoft Azure, AWS, Google Cloud) ist das Standard (IaaS).
+* Snapshots und Rollbacks: VMs lassen sich mit wenigen Klicks sichern und in vorherige Zustände zurückversetzen. Das ist hilfreich für Wartung, Updates und Tests.
+* Zentrale Verwaltung: Tools wie VMware vCenter ermöglichen die zentrale Steuerung, Überwachung und Automatisierung ganzer Virtualisierungsumgebungen.
+* Softwareentwicklung & Testing: Verschiedene Betriebssysteme (zum Beispiel Windows 10 & 11) parallel testen.
+* Legacy-Softwarebetrieb: Alte Anwendungen auf neuen Systemen weiterhin nutzen.
+* IT-Sicherheit: Malwareanalyse in isolierten Umgebungen.
+* Schulungen & Ausbildung: Schnelle Bereitstellung vollständiger Testumgebungen.
+
+![Rechenzentrum Aufbau](assets/grafik_virtuellemaschinen_rechenzentrum.png)
 
 Gängige Protokolle, welche damit verwendet werden:
-*) Fernzugriff: RDP (Remote Desktop) für Windwos VMs
-*) Terminalzugriff: SSH
-*) Netzwerkspeicher: iSCSI, NFS, SMB
+* Fernzugriff: RDP (Remote Desktop) für Windwos VMs
+* Terminalzugriff: SSH
+* Netzwerkspeicher: iSCSI, NFS, SMB
 
 
 Quellen:
