@@ -55,6 +55,13 @@ Mit der Migration von On-Premises-Systemen in die Cloud wachsen die Anforderunge
 - Cloud-Governance-Tools helfen, Budgetlimits, Tagging-Konventionen oder Sicherheitsregeln durchzusetzen
 - Beispiel: **Azure Policy** blockiert automatisch Ressourcenbereitstellungen, die nicht konform sind
 
+#### Visualisierung: Governance in der Multi-Cloud-Umgebung
+
+Die folgende Grafik zeigt, wie Governance-Mechanismen (z. B. Richtlinien, Rollen, Policy-as-Code) in einer Multi-Cloud-Landschaft angewendet werden können:
+
+![Governance in der Multi-Cloud-Umgebung](assets/governance_multicloud.png)
+**Abbildung X**: Umsetzung von Governance Policies in einer Multi-Cloud-Umgebung mit AWS, Azure und GCP
+
 ### 2.2 Datenschutz und Compliance
 
 - Unternehmen sind gesetzlich verpflichtet, personenbezogene Daten zu schützen (z. B. Art. 32 DSGVO).
