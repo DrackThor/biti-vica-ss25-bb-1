@@ -3,6 +3,7 @@
 Virtuelle Maschinen (VMs) sind softwarebasierte Nachbildungen physischer Computer, die innerhalb eines Hosts (also auf echter Hardware) betrieben werden. 
 Sie ermöglichen die parallele Ausführung mehrerer Betriebssysteme und Anwendungen auf einem einzigen physischen Gerät.
 Eine VM verhält sich wie ein echter Computer/Server allerdings vollständig virtualisiert durch eine Software-Schicht namens Hypervisor.
+
 Die vollständige simulierte Hardware, welche vom Hypervisor bereitgestellt wird, kann indiviudell konfiguriert werden:
 *) Virtuelle Festplatte: Wird als Datei gespeichert (zum Beispiel VDI, VMDK, VHD). Dient als System- und Datenträger der VM.
 *) Virtuelle CPU (vCPU): Der Hypervisor weist einer VM eine oder mehrere CPU-Kerne zu.
@@ -11,6 +12,7 @@ Die vollständige simulierte Hardware, welche vom Hypervisor bereitgestellt wird
 *) Virtuelle Grafikkarte (GPU): Unterstützt 2D/3D-Darstellung, ggf. mit GPU-Passthrough für bessere Leistung.
 *) Virtuelle Soundkarte / USB: Simuliert Peripherie wie Audio, USB-Geräte, Druckeranschlüsse usw.
 
+![virtuelle Maschine Grafik](assets/grafik_virtuellemaschine.png)
 
 Der Hypervisor ist die zentrale Komponente, die VMs verwaltet und zwischen ihnen und der physischen Hardware vermittelt. Er stellt Ressourcen wie CPU, RAM und Speicher bereit.
 Typ 1 („Bare-Metal“): Läuft direkt auf der Hardware, ohne darunterliegendes Betriebssystem. 
