@@ -60,7 +60,8 @@ Mit der Migration von On-Premises-Systemen in die Cloud wachsen die Anforderunge
 Die folgende Grafik zeigt, wie Governance-Mechanismen (z. B. Richtlinien, Rollen, Policy-as-Code) in einer Multi-Cloud-Landschaft angewendet werden können:
 
 ![Governance in der Multi-Cloud-Umgebung](assets/governance_multicloud.png)
-**Abbildung X**: Umsetzung von Governance Policies in einer Multi-Cloud-Umgebung mit AWS, Azure und GCP
+
+**Abbildung 1**: Umsetzung von Governance Policies in einer Multi-Cloud-Umgebung mit AWS, Azure und GCP
 
 ### 2.2 Datenschutz und Compliance
 
@@ -102,6 +103,8 @@ In modernen IT-Umgebungen erfolgt die Durchsetzung von Richtlinien nicht manuell
 Die folgende Darstellung zeigt eine typische Umsetzung von Governance & Policies im Cloud-Kontext – von der Definition über die technische Durchsetzung bis zur Überwachung:
 
 ![Cloud Governance Architektur](assets/governance_simple.png)
+
+**Abbildung 2:** Ablauf der Umsetzung von IT-Governance – von der Definition bis zur Überwachung
 
 ---
 
