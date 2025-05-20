@@ -93,23 +93,25 @@ Cloud-Init bringt mehrere nützliche Tools mit, die beim Debuggen oder der Analy
 
 ## 5. Architektur
 
-+--------------------------------------------------+
-| Cloud Provider (z. B. AWS, Azure, GCP) |
-| stellt Metadaten bereit |
-+-------------------------------+------------------+
-|
-v
-+--------------------------------------------------+
-| Cloud-Init (VM-Seite) |
-| 1. init -> Datenquelle |
-| 2. config -> cloud-config |
-| 3. final -> Skripte usw. |
-+-------------------------------+------------------+
-|
-v
-+--------------------------------------------------+
-| VM ist vollständig konfiguriert |
-+--------------------------------------------------+
+      +-------------------------------------------+
+      |  Cloud Provider (z. B. AWS, Azure, GCP)   |
+      |  stellt Metadaten bereit                  |
+      +---------------------------+---------------+
+                                  |
+                                  v
+      +-------------------------------------------+
+      |  Cloud-Init (auf der VM)                  |
+      |                                           |
+      |  1. init   → Datenquelle lesen            |
+      |  2. config → cloud-config anwenden        |
+      |  3. final  → Skripte ausführen            |
+      +---------------------------+---------------+
+                                  |
+                                  v
+      +-------------------------------------------+
+      |  VM ist vollständig konfiguriert          |
+      +-------------------------------------------+
+
 
 
 ## 6. Zusammengefasst
