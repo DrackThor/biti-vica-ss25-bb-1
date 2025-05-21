@@ -77,3 +77,9 @@ In komplexen Umgebungen wird RBAC durch sogenannte Policy Engines technisch gest
 ## ggf. Architektur/Schaubild/grafische Veranschaulichung
 
 ![RBAC Grafik](https://miro.medium.com/v2/resize:fit:640/format:webp/1*ub3g0nUC6NCkYPHoNB6rFw.png)
+
+## Quellen
+- https://www.ibm.com/think/topics/rbac#:~:text=Role%2Dbased%20access%20control%20(RBAC)%20is%20a%20model%20for,can't%20touch%20firewall%20settings.
+- https://www.redhat.com/en/topics/security/what-is-role-based-access-control
+- https://www.ionos.at/digitalguide/server/sicherheit/was-ist-role-based-access-control-rbac/
+- https://auth0.com/docs/manage-users/access-control/rbac
