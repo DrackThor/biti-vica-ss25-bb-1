@@ -83,3 +83,4 @@ In komplexen Umgebungen wird RBAC durch sogenannte Policy Engines technisch gest
 - https://www.redhat.com/en/topics/security/what-is-role-based-access-control
 - https://www.ionos.at/digitalguide/server/sicherheit/was-ist-role-based-access-control-rbac/
 - https://auth0.com/docs/manage-users/access-control/rbac
+- https://miro.medium.com
