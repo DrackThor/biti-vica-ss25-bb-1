@@ -131,6 +131,7 @@ Virtual Machines werden in verschiedenen Bereichen eingesetzt:
 
 ## 5. Architektur (Beispiel)
 
+```
 +---------------------------------------------------+
 |               Gast-Betriebssystem                 |
 |                (VM 1, VM 2, ...)                  |
@@ -140,3 +141,4 @@ Virtual Machines werden in verschiedenen Bereichen eingesetzt:
 |               Physische Hardware                  |
 |       (CPU, RAM, Storage, Netzwerk, etc.)         |
 +---------------------------------------------------+
+```
