@@ -19,7 +19,6 @@ Es wird z. B. eingesetzt bei:
 
 Technischer Überblick – Wie funktioniert das Ganze?
 Cloud-Native-Anwendungen basieren meist auf folgenden Prinzipien:
-
 	- Microservices(Die Anwendung besteht aus mehreren kleinen, eigenständigen Diensten.)
 	- Containerisierung(Jeder Dienst läuft in einem isolierten Container, z. B. mit Docker.)
 	- Orchestrierung(Container werden automatisch verwaltet, meist mit Kubernetes.)
