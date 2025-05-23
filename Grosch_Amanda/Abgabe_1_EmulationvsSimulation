@@ -1,0 +1,128 @@
+Simulation vs. Emulation
+
+Einführung
+  Simulation und Emulation sind zwei Begriffe, die häufig im Bereich der Informatik verwendet werden. 
+  Simulatoren bilden das Verhalten eines Systems anhand eines Modells nach, um bestimmte Bedingungen und Abläufe zu testen.
+  Emulatoren hingegen rekonstruieren die gesamte Umgebung des Originals, sodass nicht nur die Ergebnisse, sondern auch die internen Abläufe und das Betriebsverhalten realitätsgetreu nachvollzogen werden können.
+
+Simulation
+  Was ist das?
+    Simulation ist das möglichst realitätsnahe Nachbilden realer Vorgänge mithilfe eines abstrakten Modells.
+    Dieses Modell entsteht durch Abstraktion und wird genutzt, um gezielt Experimente durchzuführen.
+    Die gewonnenen Erkenntnisse lassen sich anschließend auf das reale Problem übertragen – oft aus Sicherheits- oder Kostengründen.
+
+Einsatzgebiete
+  •	Ausbildung & Training
+    o	Flugsimulator, Patientensimulator
+    o	Übung von Fähigkeiten (Skills)
+  •	Wissenschaft & Analyse
+    o	Strömungs-, Verkehrs-, Wetter- und Klimasimulation
+    o	Biophysikalische und chemische Prozesse
+  •	Technik & Systementwicklung
+    o	Simulation technischer Systeme
+    o	Design und Analyse komplexer Systeme
+    o	Netzwerlsysteme
+  •	Wirtschaft & Finanzen
+    o	Simulationen im Finanzmarkt
+    o	Bewertung wirtschaftlicher Szenarien
+
+Technische Funktionsweise
+  Simulationen funktionieren, indem eine spezielle Software ein virtuelles Modell eines realen Prozesses erstellt. 
+  Dabei werden zeitliche Abläufe, Regeln, Ressourcen und Einschränkungen mathematisch abgebildet. Die Software berechnet systematisch, wie sich das Modell über die Zeit verhält, und visualisiert dabei die Interaktionen der Komponenten.
+  So lassen sich komplexe Abläufe analysieren, ohne sie physisch nachbilden zu müssen.
+
+Simulationsarten, Tools & Beispiele
+  Diskrete Ereignissimulation
+    • Modelliert Abläufe über die Zeit anhand einzelner Ereignisse
+    •	Typische Anwendungen:
+      o	Produktionsprozesse 
+      o	Verkehrs- und Warteschlangenanalysen
+  Dynamische Simulation
+  •	Modelliert Bewegungen und räumliche Abläufe in einem System
+  •	Typische Anwendungen:
+    o	Maschinenbewegung (Kinematik)
+    o	Ergonomietests
+    o	Aerodynamik
+    o	Virtuelles Prototyping
+  Prozesssimulation
+  •	Modelliert physikalische Wechselwirkungen zwischen Systemkomponenten
+  •	Typische Anwendungen:
+    o	Produktverhalten im Betrieb
+    o	Fertigungsprozesse
+    o	Wettermodelle
+
+Emulation
+  Was ist das?
+    Emulation ist der Prozess, bei dem ein Computersystem (Host) die Funktionalität eines anderen Systems (Zielsystem) durch Software oder Hardware nachbildet.
+    Dies ermöglicht es dem Host, Anwendungen und Aufgaben, die für das Zielsystem entwickelt wurden, auszuführen, als ob sie auf der Originalhardware laufen würden.
+    Sie wird häufig in der Software-Entwicklung zum Testen und Debuggen über Plattformen hinweg eingesetzt und spielt auch eine wichtige Rolle bei der Erhaltung von Legacy-Systemen, indem sie modernen Geräten den Zugriff auf veraltete Software- und Hardwareumgebungen ermöglicht.
+
+Einsatzgebiete
+  •	Spielekonsolen-Emulation
+  •	Systemvirtualisierung
+  •	Netzwerksimulation und -tests
+  •	Bildung und Forschung
+  •	Cloud Migration und Testen
+  •	Digitale Forensik
+
+Technische Funktionsweise
+  Ein Emulator bildet sämtliche Architektur des Zielsystems nach. Dazu gehören:
+    •	Prozessor
+    •	Speicher
+    •	Peripheriegeräte
+    •	I/O Mechanismen
+  Danach übersetzt die Emulation die Befehle oder Daten des Zielsystems in eine Form, die mit der Architektur des Hostsystems kompatibel ist, um diese Nachb8ildung präzise umzusetzem wird auf einige Komponenten zurückgegriffen, wie z.B.
+    •	Prozessoremulator (Simuliert die CPU-Funktionalität des Zielsystems)
+    •	Speicheremulator (Stellt das Verhalten von RAM, Cache oder ROM nach)
+    •	E/A-Emulator (Repliziert Eingabe- und Ausgabeprozesse mit Peripheriegeräten)
+    •	Grafik- und Audioemulatoren: (Sorgen für eine originalgetreue Wiedergabe von visuellen und akustischen Inhalten)
+    •	BIOS-/ROM-Emulator: (Initialisiert die Umgebung mit Firmware-Abbildern)
+    •	Interpreter: (Übersetzen Code in ausführbare Anweisungen für den Host)
+    •	Dateisystem-/Speicheremulator: (Simuliert Festplattenstrukturen und Dateisystemverhalten.)
+    •	Debugging-Tools: (Unterstützen Analyse, Fehlerbehebung und Entwicklung.)
+
+Emulationsarten, Tools & Beispiele
+  Hardware-Emulation
+    Repliziert physische Komponenten wie CPUs oder ganze Systeme. Wird häufig genutzt, um Hardwaredesigns vor der Produktion zu testen und zu validieren.
+    Tool: QEMU
+  Software-Emulation
+    Imitiert die Funktionsweise von Software oder Betriebssystemen, sodass Programme plattformübergreifend genutzt werden können.
+    Tool: WINE 
+  Konsolenemulation
+    Ahmt Spielekonsolen nach, um exklusive Konsolenspiele auf anderen Geräten (z. B. PC) auszuführen, oft mit verbesserter Grafik und Performance.
+    Tools: Dolphin, Mameui
+  Betriebssystememulation
+    Ermöglicht die Ausführung eines anderen Betriebssystems auf einem Hostsystem, z. B. Linux auf Windows mit VirtualBox oder VMware.
+    Tool: VirtualBox
+
+
+Vergleich Simulation vs. Emulation
+  Simulation
+    Ziel: Wirklichkeitsgetreue Nachahmung des Verhaltens
+    Genauigkeit:	Verhaltensbasiert (nur bestimmte Aspekte werden simuliert)
+    Ressourcenbedarf:	Gering (läuft auch auf schwächeren Systemen)
+    Einsatzgebiete:	Analyse, Planung, Optimierung
+    Beispiele:	Flugsimulator, Modellierungssoftware
+    Vorteile:	Einfach, ressourcenschonend, einsteigerfreundlich
+    Nachteile:	Nicht 100 % echt, manche Funktionen fehlen
+
+Emulation
+    Ziel: Wirklichkeitsgetreue Nachahmung der Funktionalität
+    Genauigkeit: Realitätsgetreu (nahe am Original, oft 1:1)
+    Ressourcenbedarf: Höher (benötigt echte Images, mehr RAM/CPU)
+    Einsatzgebiete: Softwarekompatibilität
+    Beispiele: Emulator für Retro-Spiele, Virtuelle Maschinen
+    Vorteile:Sehr realistisch, ideal für reale Softwaretests
+    Nachteile: Komplexer, benötigt mehr Setup und Ressourcen
+
+Quellen
+•	https://wirtschaftslexikon.gabler.de/definition/simulation-43833
+•	https://de.wikipedia.org/wiki/Simulation#:~:text=Die%20Simulation%20oder%20Simulierung%20bezeichnet,formelmäßige%20Behandlung%20zu%20komplex%20sind.
+•	https://phoenixnap.de/Glossar/was-ist-emulation
+•	https://www.ionos.at/digitalguide/server/konfiguration/qemu/#:~:text=QEMU%2C%20kurz%20für%20„Quick%20Emulator,Entwicklerinnen%20und%20Entwicklern%20weltweit%20unterstützt.
+•	https://www-spiceworks-com.translate.goog/tech/devops/articles/what-are-emulators/?_x_tr_sl=en&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=sge#:~:text=An%20emulator%20is%20a%20software,be%20played%20on%20a%20computer.
+•	https://www.netzwelt.de/download/spiele/emulatoren-konsolen/index.html#:~:text=Das%20Programm%20Dolphin%20ist%20ein,auch%20auf%20dem%20PC%20genießen.&text=Mit%20dem%20gratis%20Emulator%20"MAMEUI,auf%20dem%20heimischen%20Computer%20genießen.
+•	https://www.virtualbox.org
+•	https://de.wikipedia.org/wiki/Simulation
+•	https://www.twi-global.com/locations/deutschland/was-wir-tun/haeufig-gestellte-fragen/was-ist-simulation
+•	https://www-baeldung-com.translate.goog/cs/simulation-vs-emulation?_x_tr_sl=en&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=sge#:~:text=A%20simulator%20focuses%20on%20a,as%20in%20the%20original%20system.
